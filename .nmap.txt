@@ -1,0 +1,191 @@
+
+n  ,hp          @<Plug>(GitGutterPreviewHunk)
+n  ,hu          @<Plug>(GitGutterUndoHunk)
+n  ,hs          @<Plug>(GitGutterStageHunk)
+n  [c           @<Plug>(GitGutterPrevHunk)
+n  ]c           @<Plug>(GitGutterNextHunk)
+   <M-n>       *@:call AutoPairsJump()<CR>
+   <M-p>       *@:call AutoPairsToggle()<CR>
+n  +             <Plug>(expand_region_expand)
+n  ,ig           <Plug>IndentGuidesToggle
+n  ,bv         & :BufExplorerVerticalSplit<CR>
+n  ,bs         & :BufExplorerHorizontalSplit<CR>
+n  ,bt         & :ToggleBufExplorer<CR>
+n  ,q          * :q<CR>
+n  ,t          * :term<CR>
+   ,p            :cp<CR>
+   ,n            :cn<CR>
+   ,co           ggVGy:tabnew<CR>:set syntax=qf<CR>pgg
+   ,cc           :botright cope<CR>
+   ,g            :Ack<Space>
+   ,e            :e! ~/.vim_runtime/my_configs.vim<CR>
+n  ,v          * :.GBrowse!<CR>
+n  ,d          * :GitGutterToggle<CR>
+n  ,a            <Plug>(ale_next_wrap)
+n  ,z          * :qa<CR>
+   ,nf           :NERDTreeFind<CR>
+   ,nb           :NERDTreeFromBookmark<Space>
+   ,nn           :NERDTreeToggle<CR>
+   ,b            :CtrlPBuffer<CR>
+   ,j            :CtrlP<CR>
+   ,o            :BufExplorer<CR>
+   ,pp           :setlocal paste!<CR>
+   ,m          * mmHmt:%s/<C-V><CR>//ge<CR>'tzt'm
+   ,s?           z=
+   ,sa           zg
+   ,sp           [s
+   ,sn           ]s
+   ,ss           :setlocal spell!<CR>
+   ,cd           :cd %:p:h<CR>:pwd<CR>
+   ,te           :tabedit <C-R>=escape(expand("%:p:h"), " ")<CR>/
+n  ,tl           :exe "tabn ".g:lasttab<CR>
+   ,t,           :tabnext<CR>
+   ,tm           :tabmove
+   ,tc           :tabclose<CR>
+   ,to           :tabonly<CR>
+   ,tn           :tabnew<CR>
+   ,h            :bprevious<CR>
+   ,l            :bnext<CR>
+   ,ba           :bufdo bd<CR>
+   ,bd           :Bclose<CR>:tabclose<CR>gT
+   ,<CR>         :noh<CR>
+n  ,w          * :w<CR>
+n  J           * 5j
+n  K           * 5k
+n  P           * :<C-U>call <SNR>102_paste_with_key("P", "n", v:register, v:count1)<CR>
+n  _             <Plug>(expand_region_shrink)
+n  cS            <Plug>CSurround
+n  cs            <Plug>Csurround
+n  cr            <Plug>(abolish-coerce-word)
+n  ch          * 0
+n  cl          * $
+n  d           * <SNR>102_yank_with_key("d")
+n  ds            <Plug>Dsurround
+n  gx            <Plug>NetrwBrowseX
+n  gP          * :<C-U>call <SNR>102_paste_with_key("gP", "n", v:register, v:count1)<CR>
+n  gp          * :<C-U>call <SNR>102_paste_with_key("gp", "n", v:register, v:count1)<CR>
+n  g<M-s>      * :call multiple_cursors#select_all("n", 0)<CR>
+n  g<C-S>      * :call multiple_cursors#new("n", 0)<CR>
+n  gcu           <Plug>Commentary<Plug>Commentary
+n  gcc           <Plug>CommentaryLine
+n  gc            <Plug>Commentary
+n  gf          * :call GotoFile("")<CR>
+n  p           * :<C-U>call <SNR>102_paste_with_key("p", "n", v:register, v:count1)<CR>
+n  ss          * :split<CR>
+n  vs          * :vsplit<CR>
+n  y           * <SNR>102_yank_with_key("y")
+n  ySS           <Plug>YSsurround
+n  ySs           <Plug>YSsurround
+n  yss           <Plug>Yssurround
+n  yS            <Plug>YSurround
+n  ys            <Plug>Ysurround
+n  y<C-G>      & :<C-U>call setreg(v:register, fugitive#Object(@%))<CR>
+n  <SNR>129_:  * :<C-U><C-R>=v:count ? v:count : ''<CR>
+n  <Plug>NetrwBrowseX * :call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR>
+   <SNR>105_Launch * :call <SNR>105_LaunchPeepOpenViaVim()<CR>
+   <Plug>PeepOpen & <SNR>105_Launch
+n  <M-P>         <Plug>yankstack_substitute_newer_paste
+n  <M-p>         <Plug>yankstack_substitute_older_paste
+n  <Plug>yankstack_after_paste * :call <SNR>102_after_paste()<CR>
+n  <Plug>yankstack_substitute_newer_paste * :<C-U>call <SNR>102_substitute_paste(-v:count1, 'n')<CR>
+n  <Plug>yankstack_substitute_older_paste * :<C-U>call <SNR>102_substitute_paste(v:count1, 'n')<CR>
+n  <Plug>YSurround * <SNR>100_opfunc2('setup')
+n  <Plug>Ysurround * <SNR>100_opfunc('setup')
+n  <Plug>YSsurround * <SNR>100_opfunc2('setup').'_'
+n  <Plug>Yssurround * '^'.v:count1.<SNR>100_opfunc('setup').'g_'
+n  <Plug>CSurround * :<C-U>call <SNR>100_changesurround(1)<CR>
+n  <Plug>Csurround * :<C-U>call <SNR>100_changesurround()<CR>
+n  <Plug>Dsurround * :<C-U>call <SNR>100_dosurround(<SNR>100_inputtarget())<CR>
+n  <Plug>SurroundRepeat * .
+n  <M-s>       * :call multiple_cursors#select_all("n", 1)<CR>
+n  <C-S>       * :call multiple_cursors#new("n", 1)<CR>
+n  <Plug>IndentGuidesDisable & :IndentGuidesDisable<CR>
+n  <Plug>IndentGuidesEnable & :IndentGuidesEnable<CR>
+n  <Plug>IndentGuidesToggle & :IndentGuidesToggle<CR>
+n  <Plug>GitGutterPreviewHunk * :call gitgutter#utility#warn('Please change your map <Plug>GitGutterPreviewHunk to <Plug>(GitGutterPreviewHunk)')<CR>
+n  <Plug>(GitGutterPreviewHunk) * :GitGutterPreviewHunk<CR>
+n  <Plug>GitGutterUndoHunk * :call gitgutter#utility#warn('Please change your map <Plug>GitGutterUndoHunk to <Plug>(GitGutterUndoHunk)')<CR>
+n  <Plug>(GitGutterUndoHunk) * :GitGutterUndoHunk<CR>
+n  <Plug>GitGutterStageHunk * :call gitgutter#utility#warn('Please change your map <Plug>GitGutterStageHunk to <Plug>(GitGutterStageHunk)')<CR>
+n  <Plug>(GitGutterStageHunk) * :GitGutterStageHunk<CR>
+n  <Plug>GitGutterPrevHunk * &diff ? '[c' : ":\<C-U>call gitgutter#utility#warn('Please change your map \<Plug>GitGutterPrevHunk to \<Plug>(GitGutterPrevHunk)')\<CR>"
+n  <Plug>(GitGutterPrevHunk) * &diff ? '[c' : ":\<C-U>execute v:count1 . 'GitGutterPrevHunk'\<CR>"
+n  <Plug>GitGutterNextHunk * &diff ? ']c' : ":\<C-U>call gitgutter#utility#warn('Please change your map \<Plug>GitGutterNextHunk to \<Plug>(GitGutterNextHunk)')\<CR>"
+n  <Plug>(GitGutterNextHunk) * &diff ? ']c' : ":\<C-U>execute v:count1 . 'GitGutterNextHunk'\<CR>"
+n  <Plug>fugitive: & <Nop>
+n  <Plug>fugitive:y<C-G> & :<C-U>call setreg(v:register, fugitive#Object(@%))<CR>
+n  <Plug>(expand_region_expand) * :<C-U>call expand_region#next('n', '+')<CR>
+n  <Plug>CommentaryUndo   :echoerr "Change your <Plug>CommentaryUndo map to <Plug>Commentary<Plug>Commentary"<CR>
+n  <Plug>ChangeCommentary * c:<C-U>call <SNR>83_textobject(1)<CR>
+n  <Plug>CommentaryLine * <SNR>83_go() . '_'
+n  <Plug>Commentary * <SNR>83_go()
+n  <Plug>(abolish-coerce-word) * <SNR>82_coerce(nr2char(getchar())).'iw'
+n  <Plug>(abolish-coerce) * <SNR>82_coerce(nr2char(getchar()))
+n  <C-W><C-F>  * :call GotoFile("new")<CR>
+n  <C-W>f      * :call GotoFile("new")<CR>
+   <C-F>         <Plug>(ctrlp)
+n  <Plug>(ctrlp) * :<C-U>CtrlP<CR>
+n  <Plug>(ale_info_preview) * :ALEInfo -preview<CR>
+n  <Plug>(ale_info_clipboard) * :ALEInfo -clipboard<CR>
+n  <Plug>(ale_info_echo) * :ALEInfo -echo<CR>
+n  <Plug>(ale_info) * :ALEInfo<CR>
+n  <Plug>(ale_repeat_selection) * :ALERepeatSelection<CR>
+n  <Plug>(ale_code_action) * :ALECodeAction<CR>
+n  <Plug>(ale_filerename) * :ALEFileRename<CR>
+n  <Plug>(ale_rename) * :ALERename<CR>
+n  <Plug>(ale_import) * :ALEImport<CR>
+n  <Plug>(ale_documentation) * :ALEDocumentation<CR>
+n  <Plug>(ale_hover) * :ALEHover<CR>
+n  <Plug>(ale_find_references) * :ALEFindReferences<CR>
+n  <Plug>(ale_go_to_implementation_in_vsplit) * :ALEGoToImplementation -vsplit<CR>
+n  <Plug>(ale_go_to_implementation_in_split) * :ALEGoToImplementation -split<CR>
+n  <Plug>(ale_go_to_implementation_in_tab) * :ALEGoToImplementation -tab<CR>
+n  <Plug>(ale_go_to_implementation) * :ALEGoToImplementation<CR>
+n  <Plug>(ale_go_to_type_definition_in_vsplit) * :ALEGoToTypeDefinition -vsplit<CR>
+n  <Plug>(ale_go_to_type_definition_in_split) * :ALEGoToTypeDefinition -split<CR>
+n  <Plug>(ale_go_to_type_definition_in_tab) * :ALEGoToTypeDefinition -tab<CR>
+n  <Plug>(ale_go_to_type_definition) * :ALEGoToTypeDefinition<CR>
+n  <Plug>(ale_go_to_definition_in_vsplit) * :ALEGoToDefinition -vsplit<CR>
+n  <Plug>(ale_go_to_definition_in_split) * :ALEGoToDefinition -split<CR>
+n  <Plug>(ale_go_to_definition_in_tab) * :ALEGoToDefinition -tab<CR>
+n  <Plug>(ale_go_to_definition) * :ALEGoToDefinition<CR>
+n  <Plug>(ale_fix) * :ALEFix<CR>
+n  <Plug>(ale_detail) * :ALEDetail<CR>
+n  <Plug>(ale_lint) * :ALELint<CR>
+n  <Plug>(ale_reset_buffer) * :ALEResetBuffer<CR>
+n  <Plug>(ale_disable_buffer) * :ALEDisableBuffer<CR>
+n  <Plug>(ale_enable_buffer) * :ALEEnableBuffer<CR>
+n  <Plug>(ale_toggle_buffer) * :ALEToggleBuffer<CR>
+n  <Plug>(ale_reset) * :ALEReset<CR>
+n  <Plug>(ale_disable) * :ALEDisable<CR>
+n  <Plug>(ale_enable) * :ALEEnable<CR>
+n  <Plug>(ale_toggle) * :ALEToggle<CR>
+n  <Plug>(ale_last) * :ALELast<CR>
+n  <Plug>(ale_first) * :ALEFirst<CR>
+n  <Plug>(ale_next_wrap_warning) * :ALENext -wrap -warning<CR>
+n  <Plug>(ale_next_warning) * :ALENext -warning<CR>
+n  <Plug>(ale_next_wrap_error) * :ALENext -wrap -error<CR>
+n  <Plug>(ale_next_error) * :ALENext -error<CR>
+n  <Plug>(ale_next_wrap) * :ALENextWrap<CR>
+n  <Plug>(ale_next) * :ALENext<CR>
+n  <Plug>(ale_previous_wrap_warning) * :ALEPrevious -wrap -warning<CR>
+n  <Plug>(ale_previous_warning) * :ALEPrevious -warning<CR>
+n  <Plug>(ale_previous_wrap_error) * :ALEPrevious -wrap -error<CR>
+n  <Plug>(ale_previous_error) * :ALEPrevious -error<CR>
+n  <Plug>(ale_previous_wrap) * :ALEPreviousWrap<CR>
+n  <Plug>(ale_previous) * :ALEPrevious<CR>
+   <F3>          :NERDTreeToggle<CR>
+n  <Right>     * <Nop>
+n  <Left>      * <Nop>
+n  <Down>      * <Nop>
+n  <Up>        * <Nop>
+no <F5>          :call CompileRun()<CR>
+   <C-N>         :NERDTreeFind<CR>
+n  <C-P>         <Plug>yankstack_substitute_older_paste
+n  <M-k>         mz:m-2<CR>`z
+n  <M-j>         mz:m+<CR>`z
+   <C-L>         <C-W>l
+   <C-H>         <C-W>h
+   <C-K>         <C-W>k
+nox<C-J>         <C-W>j
+   ½             $
